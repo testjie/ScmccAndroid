@@ -23,5 +23,5 @@ class AppiumServer:
                   " -U {} --chromedriver-executable {} --no-reset --session-override " \
                   "--nodeconfig .\\conf\\{}.json".format(node_server_path, appium_server_path,
                                                          self.url, self.ap, self.bp, self.sp,
-                                                         chrome_driver_path, self.device["deviceName"], self.device["deviceName"])
+                                                         chrome_driver_path, self.device["deviceName"], self.device["band"])
         os.system(command)

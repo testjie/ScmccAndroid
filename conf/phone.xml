@@ -40,13 +40,13 @@
               appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">huaweib199</item>
 
         <item deviceName="1d32d8a27d14" platformName="Android" platformVersion="7.1"
-              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">RedMi4X</item>
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">redmi4x</item>
 
         <item deviceName="S4SCPZGYDIFQQ4VO" platformName="Android" platformVersion="6.0"
               appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">360F4S</item>
 
         <item deviceName="3fdd3d97" platformName="Android" platformVersion="7.0"
-              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">Mi4C</item>
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">mi4c</item>
     </phones>
 
 </map>
