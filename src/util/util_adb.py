@@ -1,8 +1,23 @@
 # -*- coding: utf-8 -*-
 __author__ = 'snake'
 
-import re
-from src.util.util_common import exec_cmd
+import re, os
+
+
+def _exec_cmd(cmd):
+    """
+    执行cmd命令并返回实时输出结果
+    :param cmd:
+    :return:
+    """
+    try:
+        r = os.popen(cmd)
+        text = r.read()
+        r.close()
+    except:
+        pass
+
+    return text
 
 
 def connect(device):
@@ -11,7 +26,7 @@ def connect(device):
     :param device:
     :return:
     """
-    exec_cmd("adb connect " + device)
+    _exec_cmd("adb connect " + device)
 
 
 def disconnect(device):
@@ -20,7 +35,7 @@ def disconnect(device):
     :param device:
     :return:
     """
-    return exec_cmd("adb disconnect " + device)
+    return _exec_cmd("adb disconnect " + device)
 
 
 def start_adb_server():
@@ -28,7 +43,7 @@ def start_adb_server():
     启动adb服务
     :return:
     """
-    return exec_cmd("adb start-server")
+    return _exec_cmd("adb start-server")
 
 
 def stop_adb_server():
@@ -36,7 +51,7 @@ def stop_adb_server():
     停止adb服务
     :return:
     """
-    return exec_cmd("adb kill-server")
+    return _exec_cmd("adb kill-server")
 
 
 def restart_adb_server():
@@ -77,7 +92,7 @@ def is_connect_devices(devices):
     list_dev = []
     for device in devices:
         str = "{}\tdevice".format(device["deviceName"])
-        if str in exec_cmd(cmd):
+        if str in _exec_cmd(cmd):
             list_dev.append(device)
 
     return list_dev
@@ -95,7 +110,7 @@ def _adb_get_display_px(uuid=""):
         cmd = "adb -s {} shell dumpsys window displays".format(uuid)
 
     try:
-        display_px = re.findall("cur=(.+?) app=", exec_cmd(cmd))[0]
+        display_px = re.findall("cur=(.+?) app=", _exec_cmd(cmd))[0]
         width = display_px.split("x")[0]
         height = display_px.split("x")[1]
     except:
@@ -121,7 +136,7 @@ def adb_slide_unlock(uuid="", slide_dire="UP"):
         slide_cmd = "adb {} shell input touchscreen swipe".format("-s " + uuid)
 
     # 判断屏幕是否亮并模拟电源键点亮屏幕
-    if "Display Power: state=OFF" in exec_cmd(display_power):
+    if "Display Power: state=OFF" in _exec_cmd(display_power):
         cmds.append(screen_power)
 
     x, y = _adb_get_display_px(uuid=uuid)
@@ -149,7 +164,7 @@ def adb_slide_unlock(uuid="", slide_dire="UP"):
             cmds.append(slide_cmd + " {} {} {} {}".format(int(x)/2-100, int(y)/2, 100, int(y)/2))
 
     for cmd in cmds:
-        exec_cmd(cmd)
+        _exec_cmd(cmd)
 
 
 if __name__ == "__main__":

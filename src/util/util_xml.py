@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+XML工具方法
+"""
 __author__ = 'snake'
 
 import xml.etree.ElementTree as ET

@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+首页相关业务代码
+"""
 __author__ = 'snake'
 
+import time
 from src.util.util_logger import logger
-from src.util.util_common import force_wait
 from src.util.util_appium_tools import find_element
 
 
@@ -47,7 +50,7 @@ def back_to_index(driver):
 
         except:
             logger.war("定位首页失败,等待3秒开始第{}次重试".format(timeout))
-            force_wait(3)
+            time.sleep(3)
             timeout = timeout + 1
             # 退出了app
             if driver.current_activity == ".Launcher":
@@ -87,7 +90,7 @@ def close_index_alerts(driver):
 
         except:
             logger.war("定位首页手机号元素失败,等待1秒开始第{}次重试".format(timeout))
-            force_wait(1)
+            time.sleep(1)
             timeout = timeout + 1
             _close_app_update_alert(driver)
             _close_msg_alert(driver)
@@ -119,7 +122,7 @@ def _close_index_alerts_by_back(driver):
         except:
             timeout = timeout + 1
             logger.war("定位首页手机号元素失败,等待1秒开始第{}次重试".format(timeout))
-            force_wait(3)
+            time.sleep(3)
 
 
 def _close_msg_alert(driver):

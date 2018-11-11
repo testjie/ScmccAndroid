@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+邮件模板
+"""
 __author__ = 'snake'
 
 import smtplib
@@ -30,7 +33,7 @@ class Mail:
 
 class EmailReportTemplate:
     def __init__(self):
-        self.html = """<html>
+        self.__html = """<html>
                     <head>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                     <style type="text/css">
@@ -85,7 +88,7 @@ class EmailReportTemplate:
 						<th width="10%">类型</th>
                       </thead>"""
 
-        self.html_ft = """                    
+        self.__html_ft = """                    
                         </table>
                         </body>
                         </html>
@@ -108,7 +111,7 @@ class EmailReportTemplate:
             cts += """\t\t\t\t\t\t</tr>\n"""
             details += cts
 
-        return self.html + details + self.html_ft
+        return self.__html + details + self.__html_ft
 
 
 if __name__ == "__main__":

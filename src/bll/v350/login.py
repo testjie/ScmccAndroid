@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+登录相关业务集成代码
+"""
 __author__ = 'snake'
 
 from src.util.util_logger import logger

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from src.case.v350.basecase import TestCaseBase
-
+"""
+运行入口
+"""
 __author__ = 'snake'
 
 import os
@@ -16,34 +17,39 @@ from src.util.util_excel import read_excel
 from src.util.util_xml import get_phone_config
 from src.util.util_adb import is_connect_devices
 from src.util.util_xml import get_project_config
+from src.util.util_config import NodeConfigTemplate
 from src.util.util_email import EmailReportTemplate
+from src.case.v350.testcase_base import TestCaseBase
 from src.util.util_appium_server import AppiumServer
 
 
-REPORTS_PATH = "./reports/"                                                             # 测试报告路径
-START_TEST_TIME = time.strftime('%Y-%m-%d-%H-%M')                                       # 测试开始时间
+REPORTS_PATH = "./reports/"                                                                 # 测试报告路径
+START_TEST_TIME = time.strftime('%Y-%m-%d-%H-%M')                                           # 测试开始时间
 
-def run(run_verion):
+
+def _run(run_verion):
     """
     :param run_verion:版本信息，格式见project.xml
     :return:
     """
-    conn_devices = is_connect_devices(get_phone_config())                                # 已连接的设备
-    current_app_ver = run_verion.get("version").replace(".", "").lower()                 # 当前执行版本
+    all_conf_devices = get_phone_config()                                                    # 配置文件设备
+    connected_devices = is_connect_devices(all_conf_devices)                                 # 已连接的设备
+    current_app_version = run_verion.get("version").replace(".", "").lower()                 # 当前执行版本
+
+    # 生成各个手机的配置文件
+    connected_devices = _generate_device_config(connected_devices)
 
     # 启动SeleniumGridServer
     _start_selenium_grid_server()
-    logger.info("等待5S秒启动SeleniumServer")
-    time.sleep(5)
 
     # 启动AppiumServer
-    _start_appium_servers(conn_devices)
+    _start_appium_servers(connected_devices)
     logger.info("等待20S启动AppiumServer")
     time.sleep(20)
 
     # 注册AppiumServer到SeleniumGrid并且并行执行多个设备的Case
-    pool = Pool(len(conn_devices))
-    pool.map(_run_case, conn_devices)
+    pool = Pool(len(connected_devices))
+    pool.map(_run_case, connected_devices)
     pool.close()
     pool.join()
 
@@ -89,8 +95,45 @@ def _get_test_suites(version="v350", kw="test_", devices=None):
 
 
 def _start_selenium_grid_server(selenium_grid_path=".\\libs\\seleniumgrid\\selenium-server-standalone-3.141.0.jar"):
-    command = "java -jar {} -role hub".format(selenium_grid_path)
-    Process(target=os.system(command)).start()
+    """
+    后台启动seleniumGrid服务，实现os.system非阻塞
+    :param selenium_grid_path:
+    :return:
+    """
+    try:
+        res = requests.get("http://localhost:4444/grid/console")
+        if res.status_code == 200 and len(res.text) != 0:
+            logger.info("SeleniumGridServer已启动!")
+            return True
+
+    except:
+        logger.info("等待5S秒启动SeleniumServer")
+        command = "start java -jar {} -role hub".format(selenium_grid_path)
+        Process(target=os.system(command)).start()
+        time.sleep(5)
+
+
+def _start_appium_servers(connected_devices):
+    """
+    线程
+    :param devices:
+    :param ap:  appium-port
+    :param bp:  bootstrap-port
+    :param sp:  selendroid-port
+    :return:
+    """
+    for dev in connected_devices:
+        server = AppiumServer(device=dev)
+        Process(target=server.start_server).start()
+
+
+def _stop_appium_server():
+    """
+    关闭AppiumServer
+    :return:
+    """
+    logger.info("关闭AppiumServer")
+    os.system("taskkill /f /im node.exe")
 
 
 def _appium_server_status(devices):
@@ -168,30 +211,6 @@ def _remove_retry_pass_results(success, errors, failures):
             errors.remove(e)
 
     return success, errors, failures
-
-
-def _start_appium_servers(devices, ap=4720, bp=4721, sp=4722):
-    """
-    线程
-    :param devices:
-    :param ap:  appium-port
-    :param bp:  bootstrap-port
-    :param sp:  selendroid-port
-    :return:
-    """
-    for dev in devices:
-        ap, bp, sp = ap + 3, bp + 3, sp + 3
-        server = AppiumServer(device=dev, ap=ap, bp=bp, sp=sp)
-        Process(target=server.start_server).start()
-
-
-def _stop_appium_server():
-    """
-    关闭AppiumServer
-    :return:
-    """
-    logger.info("关闭AppiumServer")
-    os.system("taskkill /f /im node.exe")
 
 
 def _generate_results(runner, result, version):
@@ -302,22 +321,48 @@ def _get_case_module(cases, case):
     return ""
 
 
+def _generate_device_config(connected_devices):
+    """
+    自动生成设备配置文件
+        1. 删除所有配置文件
+        2. 自动成生成设备信息
+    :return:
+    """
+    # 1. 删除所有配置文件
+    os.system("del .\\conf\\*.json")
+
+    # 2. 创建配置文件
+    dev_list = []
+    ap, bp, sp = 4720, 4721, 4722
+    for dev in connected_devices:
+        logger.info("开始生成手机【{}】的配置文件".format(dev["band"]))
+
+        ap, bp, sp = ap+3, bp+3, sp+3
+        dev["ap"], dev["bp"], dev["sp"] = ap, bp, sp
+        dev_list.append(dev)
+
+        # 生成配置信息
+        template = NodeConfigTemplate(uuid=dev["deviceName"], platform_version=dev["platformVersion"], appium_port=dev["ap"])
+        template_str = template.get_template()
+
+        # 将配置信息写入到文件
+        try:
+            file_name = ".\\conf\\{}.json".format(dev["band"])
+            with open(file_name, "w") as f:
+                f.write(template_str)
+        except:
+            logger.error("写入文件【{}】出现错误, 终止本次测试...".format(dev["band"]))
+            exit(0)
+        else:
+            logger.info("成功生成手机【{}】的配置文件".format(dev["band"]))
+
+    return dev_list
+
+
 if __name__ == "__main__":
     """执行当前配置版本的App
     """
     for current_run_verion in get_project_config():
-        run(current_run_verion)
+        _run(current_run_verion)
 
-    # print(_get_test_suites(version="v350", kw="test_"))
 
-"""
-启动服务端
-java -jar C://Users//SNake//Desktop//selenium-server-standalone-3.141.0.jar -role hub
-
-注册节点
-cd /d C:\\Users\\SNake\\PycharmProjects\\ScmccAndroid
-
-.\\libs\\nodejs\\node.exe .\\libs\\appium\\build\\lib\\main.js -p 4724 -bp 4734 -U 1f09cafe --nodeconfig .\\conf\\vivor9s.json
-
-.\\libs\\nodejs\\node.exe .\\libs\\appium\\build\\lib\\main.js -p 4723 -bp 4733 -U 1d32d8a27d14 --nodeconfig .\\conf\\redmi4x.json
-"""

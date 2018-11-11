@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+appium相关方法封装
+"""
 __author__ = 'snake'
 
 from src.util.util_logger import logger
-from src.util.util_common import force_wait
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 

@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+"""
+Logger工具方法
+"""
 __author__ = 'snake'
 
 import time

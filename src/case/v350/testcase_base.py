@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
     testbase:所有测试用例的基类
     作用：
@@ -5,18 +6,17 @@
         2. 初始化driver
         3. 初始化所有用例
 """
-# -*- coding: utf-8 -*-
 __author__ = 'snake'
 
 
 import unittest
-
 from selenium.webdriver.support.wait import WebDriverWait
 
 from src.util.util_logger import logger
 from src.bll.v350.index import back_to_index
 from src.bll.v350.login import one_key_login
 from src.util.util_adb import adb_slide_unlock
+from src.util.util_config import SeleniumGridConfig
 from src.util.util_appium_driver import AppiumDriver
 
 
@@ -24,7 +24,7 @@ class TestCaseBase(unittest.TestCase):
 
     def __init__(self, methodName="runTest", param=None):
         super(TestCaseBase, self).__init__(methodName)
-        self.param = param
+        self.__param = param
 
     # @classmethod
     # def setUpClass(cls):
@@ -32,7 +32,7 @@ class TestCaseBase(unittest.TestCase):
     #     logger.info("开始执行测试集->{}".format(cls.__name__))
     #     logger.info("开始获取AppiumDriver")
     #     logger.info("成功获取driver, driver信息->{}".format(cls.driver))
-
+    #
     # @classmethod
     # def tearDownClass(cls):
     #     logger.info("开始关闭driver")
@@ -41,7 +41,7 @@ class TestCaseBase(unittest.TestCase):
     #     logger.info("="*100)
 
     def setUp(self):
-        self.driver = TestCaseBase._get_driver(self.param)
+        self.driver = TestCaseBase._get_driver(self.__param)
         logger.info("*"*100)
         logger.info("开始执行用例->{}.{}".format(self.__class__, self._testMethodName))
         logger.info("开始执行返回首页")
@@ -129,7 +129,7 @@ class TestCaseBase(unittest.TestCase):
         获取AppiumDriver
         :return:
         """
-        url = "http://127.0.0.1:4444/wd/hub"
+        url = "http://{}:{}/wd/hub".format(SeleniumGridConfig.HUB_HOST, SeleniumGridConfig.HUB_PORT)
         device_name = device["deviceName"]
         app_package = device["appPackage"]
         app_activity = device["appActivity"]

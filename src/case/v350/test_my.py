@@ -1,13 +1,12 @@
+# -*- coding: utf-8  -*-
 """
     首页-我的
 """
-
-# -*- coding: utf-8  -*-
 __author__ = 'snake'
 
 import unittest
 from src.util.util_logger import logger
-from src.case.v350.basecase import TestCaseBase
+from src.case.v350.testcase_base import TestCaseBase
 
 
 class TestCaseMy(TestCaseBase):
