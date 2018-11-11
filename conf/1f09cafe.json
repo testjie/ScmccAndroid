@@ -1,0 +1,26 @@
+{
+  "capabilities":
+      [
+       {
+      "deviceName": "1f09cafe",
+      "version": "7.1",
+      "maxInstances": 3,
+      "platform": "ANDROID",
+      "browserName": "chrome"
+        }
+      ],
+  "configuration":
+  {
+    "cleanUpCycle":2000,
+    "timeout":30000,
+    "proxy":"org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "url":"http://127.0.0.1:4723/wd/hub",
+    "host":"127.0.0.1",
+    "port":4723,
+    "maxSession":10,
+    "register":true,
+    "registerCycle":1000,
+    "hubPort":4444,
+    "hubHost":"127.0.0.1"
+  }
+}

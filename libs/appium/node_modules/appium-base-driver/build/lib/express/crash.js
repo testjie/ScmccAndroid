@@ -1,0 +1,19 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _protocol = require('../protocol');
+
+function produceError() {
+  throw new _protocol.errors.UnknownCommandError('Produced generic error for testing');
+}
+
+function produceCrash() {
+  throw new Error('We just tried to crash Appium!');
+}
+
+exports.produceError = produceError;
+exports.produceCrash = produceCrash;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9leHByZXNzL2NyYXNoLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozt3QkFBdUIsYUFBYTs7QUFHcEMsU0FBUyxZQUFZLEdBQUk7QUFDdkIsUUFBTSxJQUFJLGlCQUFPLG1CQUFtQixDQUFDLG9DQUFvQyxDQUFDLENBQUM7Q0FDNUU7O0FBRUQsU0FBUyxZQUFZLEdBQUk7QUFDdkIsUUFBTSxJQUFJLEtBQUssQ0FBQyxnQ0FBZ0MsQ0FBQyxDQUFDO0NBQ25EOztRQUdRLFlBQVksR0FBWixZQUFZO1FBQUUsWUFBWSxHQUFaLFlBQVkiLCJmaWxlIjoibGliL2V4cHJlc3MvY3Jhc2guanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBlcnJvcnMgfSBmcm9tICcuLi9wcm90b2NvbCc7XG5cblxuZnVuY3Rpb24gcHJvZHVjZUVycm9yICgpIHtcbiAgdGhyb3cgbmV3IGVycm9ycy5Vbmtub3duQ29tbWFuZEVycm9yKCdQcm9kdWNlZCBnZW5lcmljIGVycm9yIGZvciB0ZXN0aW5nJyk7XG59XG5cbmZ1bmN0aW9uIHByb2R1Y2VDcmFzaCAoKSB7XG4gIHRocm93IG5ldyBFcnJvcignV2UganVzdCB0cmllZCB0byBjcmFzaCBBcHBpdW0hJyk7XG59XG5cblxuZXhwb3J0IHsgcHJvZHVjZUVycm9yLCBwcm9kdWNlQ3Jhc2ggfTtcbiJdLCJzb3VyY2VSb290IjoiLi4vLi4vLi4ifQ==

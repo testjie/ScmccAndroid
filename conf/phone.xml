@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+    <!-- 本地开发环境 -->
+    <phones type="local">
+        <item deviceName="71MBBLE25DZU" platformName="Android" platformVersion="5.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">m1note</item>
+
+        <item deviceName="1f09cafe" platformName="Android" platformVersion="7.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">vivox9</item>
+
+        <item deviceName="b8d3dab2" platformName="Android" platformVersion="6.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">oppor9s</item>
+
+        <item deviceName="88e3ab786d24" platformName="Android" platformVersion="4.4"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">huaweib199</item>
+
+        <item deviceName="1d32d8a27d14" platformName="Android" platformVersion="7.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">RedMi4X</item>
+
+        <item deviceName="S4SCPZGYDIFQQ4VO" platformName="Android" platformVersion="6.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">360F4S</item>
+
+        <item deviceName="3fdd3d97" platformName="Android" platformVersion="7.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">Mi4C</item>
+    </phones>
+
+    <!-- 线上产品环境 -->
+    <phones type="product">
+        <item deviceName="71MBBLE25DZU" platformName="Android" platformVersion="5.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">m1note</item>
+
+        <item deviceName="1f09cafe" platformName="Android" platformVersion="7.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">vivox9</item>
+
+        <item deviceName="b8d3dab2" platformName="Android" platformVersion="6.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">oppor9s</item>
+
+        <item deviceName="88e3ab786d24" platformName="Android" platformVersion="4.4"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">huaweib199</item>
+
+        <item deviceName="1d32d8a27d14" platformName="Android" platformVersion="7.1"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">RedMi4X</item>
+
+        <item deviceName="S4SCPZGYDIFQQ4VO" platformName="Android" platformVersion="6.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">360F4S</item>
+
+        <item deviceName="3fdd3d97" platformName="Android" platformVersion="7.0"
+              appPackage="com.sunrise.scmbhc" appActivity="com.sunrise.scmbhc.ui.activity.loading.LoadingActivity">Mi4C</item>
+    </phones>
+
+</map>

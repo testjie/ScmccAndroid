@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+    <!-- 本地开发环境 -->
+    <config type="local">
+        <item name="version" version="v3.4.4" enable="false"/>
+        <item name="version" version="v3.5.0" enable="true"/>
+    </config>
+
+
+    <!-- 线上产品环境 -->
+    <config type="product">
+        <item name="version" version="v3.4.4" enable="false"/>
+        <item name="version" version="v3.5.0" enable="true"/>
+    </config>
+
+    <!-- 启动参数 -->
+    <!-- port、bootstrap-port、selendroid-port -->
+</map>

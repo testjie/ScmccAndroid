@@ -1,0 +1,4 @@
+requests==2.18.4
+ddt==1.1.1
+Appium-Python-Client==0.26
+xlrd==1.1.0

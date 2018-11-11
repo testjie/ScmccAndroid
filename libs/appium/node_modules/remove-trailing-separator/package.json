@@ -1,0 +1,22 @@
+{
+  "name": "remove-trailing-separator",
+  "version": "1.1.0",
+  "description": "Removes separators from the end of the string.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darsain/remove-trailing-separator.git"
+  },
+  "author": "darsain",
+  "license": "ISC",
+  "homepage": "https://github.com/darsain/remove-trailing-separator#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.14",
+    "nyc": "^8.3.0",
+    "xo": "^0.16.0"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "appium",
+  "description": "Automation for Apps.",
+  "version": "1.8.1",
+  "author": "https://github.com/appium",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appium/appium.git"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
+  "main": "./build/lib/main.js",
+  "bin": {
+    "appium": "./build/lib/main.js"
+  },
+  "directories": {
+    "lib": "./lib",
+    "doc": "./docs"
+  },
+  "dependencies": {
+    "appium-android-driver": "2.x",
+    "appium-base-driver": "^2.20.2",
+    "appium-espresso-driver": "^1.0.0-beta.3",
+    "appium-fake-driver": "^0.x",
+    "appium-ios-driver": "2.x",
+    "appium-mac-driver": "1.x",
+    "appium-selendroid-driver": "1.x",
+    "appium-support": "2.x",
+    "appium-uiautomator2-driver": "1.x",
+    "appium-windows-driver": "1.x",
+    "appium-xcuitest-driver": "2.x",
+    "appium-youiengine-driver": "^1.0.17",
+    "argparse": "^1.0.10",
+    "async-lock": "^1.0.0",
+    "asyncbox": "2.x",
+    "babel-runtime": "=5.8.24",
+    "bluebird": "3.x",
+    "continuation-local-storage": "3.x",
+    "dateformat": "^3.0.3",
+    "lodash": "4.x",
+    "npmlog": "4.x",
+    "request": "^2.81.0",
+    "request-promise": "4.x",
+    "semver": "^5.5.0",
+    "source-map-support": "0.x",
+    "teen_process": "1.x",
+    "winston": "2.x"
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "precommit-test"
+  ],
+  "devDependencies": {
+    "appium-gulp-plugins": "2.x",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "7.x",
+    "babel-preset-env": "^1.6.0",
+    "chai": "4.x",
+    "chai-as-promised": "7.x",
+    "eslint": "3.x",
+    "eslint-config-appium": "2.x",
+    "eslint-plugin-babel": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-mocha": "4.x",
+    "eslint-plugin-promise": "3.x",
+    "handlebars": "^4.0.10",
+    "mocha": "5.x",
+    "pre-commit": "1.x",
+    "replace-ext": "^1.0.0",
+    "sinon": "5.x",
+    "validate.js": "^0.12.0",
+    "wd": "1.x",
+    "yaml-js": "^0.2.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "1.x",
+    "heapdump": "0.x"
+  }
+}

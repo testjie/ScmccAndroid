@@ -1,0 +1,155 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:2:1-67:12
+	package
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:3:5-33
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:8:5-75
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:8:22-72
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:9:5-73
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:9:22-70
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:10:5-76
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:10:22-73
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:11:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:13:22-78
+uses-permission#android.permission.ACCESS_MOCK_LOCATION
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:14:22-76
+uses-permission#android.permission.SET_ANIMATION_SCALE
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:15:5-78
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:15:22-75
+uses-permission#android.permission.CHANGE_CONFIGURATION
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:16:5-79
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:16:22-76
+uses-feature#android.hardware.wifi
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:18:5-58
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:18:19-55
+application
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:20:5-66:19
+	android:label
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:22:9-41
+	android:icon
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:21:9-45
+activity#io.appium.settings.Settings
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:23:9-36:20
+	android:label
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:28:13-45
+	android:stateNotNeeded
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:31:13-42
+	android:excludeFromRecents
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:25:13-46
+	android:launchMode
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:29:13-48
+	android:exported
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:26:13-36
+	android:noHistory
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:30:13-38
+	android:finishOnTaskLaunch
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:27:13-46
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:24:13-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:32:13-35:29
+action#android.intent.action.MAIN
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:33:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:34:17-77
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:34:27-74
+service#io.appium.settings.LocationService
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:38:9-41:19
+	android:exported
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:40:13-36
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:39:13-44
+receiver#io.appium.settings.receivers.WiFiConnectionSettingReceiver
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:43:9-47:20
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:43:19-74
+intent-filter#io.appium.settings.wifi
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:44:13-46:29
+action#io.appium.settings.wifi
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:45:17-66
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:45:25-63
+receiver#io.appium.settings.receivers.DataConnectionSettingReceiver
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:49:9-53:20
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:49:19-74
+intent-filter#io.appium.settings.data_connection
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:50:13-52:29
+action#io.appium.settings.data_connection
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:51:17-77
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:51:25-74
+receiver#io.appium.settings.receivers.AnimationSettingReceiver
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:55:9-59:20
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:55:19-69
+intent-filter#io.appium.settings.animation
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:56:13-58:29
+action#io.appium.settings.animation
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:57:17-71
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:57:25-68
+receiver#io.appium.settings.receivers.LocaleSettingReceiver
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:61:9-65:20
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:61:19-66
+intent-filter#io.appium.settings.locale
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:62:13-64:29
+action#io.appium.settings.locale
+ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:63:17-68
+	android:name
+		ADDED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml:63:25-65
+uses-sdk
+INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+	android:targetSdkVersion
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/isaac/code/io.appium.settings/app/src/main/AndroidManifest.xml
