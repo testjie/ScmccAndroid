@@ -35,12 +35,12 @@ def _singleton(cls):
     instances = {}
 
     @wraps(cls)
-    def getinstance(*args, **kw):
+    def get_instance(*args, **kw):
         if cls not in instances:
             instances[cls] = cls(*args, **kw)
         return instances[cls]
 
-    return getinstance
+    return get_instance
 
 
 # 在cli中初始化一次就行了

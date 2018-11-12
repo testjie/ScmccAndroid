@@ -10,7 +10,6 @@ from src.case.v350.testcase_base import TestCaseBase
 
 
 class TestCaseMy(TestCaseBase):
-
     def test_dqye(self):
         """
         检查当前余额，规则：为空/0/没有单位
@@ -48,6 +47,8 @@ class TestCaseMy(TestCaseBase):
         if blc == 0 and consume == 0:
             self.assertEquals(1, 2, "当前余额格式异常,余额->{}".format(balance))
 
+        self.assertFalse(True, "111")
+
     def test_dyxf(self):
         """
         检查当前消费，规则：为空/0/没有单位
@@ -84,6 +85,7 @@ class TestCaseMy(TestCaseBase):
         if balance == 0 and cse == 0:
             self.assertTrue(False, "当前消费金额异常,余额为->{}".format(consume))
 
+    @unittest.skip("")
     def test_syll(self):
         """
          检查当前剩余流量，规则：为空/0/没有单位
@@ -121,6 +123,7 @@ class TestCaseMy(TestCaseBase):
         if cse == 0.0 or cse == 0:
             self.assertEquals(1, 2, "当前消费金额异常,余量->{}".format(flow))
 
+    @unittest.skip("")
     def test_syyy(self):
         """
         检查剩余语音，规则：为空/0/没有单位
@@ -186,6 +189,7 @@ class TestCaseMy(TestCaseBase):
         if not isinstance(sore, int):
             self.assertEquals(1, 2, "可用积分格式异常,余量->{}".format(sore))
 
+    @unittest.skip("")
     def test_user_num(self):
         """
         检查我的-手机号 规则：不为空
@@ -224,6 +228,7 @@ class TestCaseMy(TestCaseBase):
             msg = "我的-信用星级异常,信用星级-{}".format(user_star)
             self.assertEquals(1, 2, msg)
 
+    @unittest.skip("")
     def test_tclx(self):
         """
         检查我的-套餐类型 规则：不为空

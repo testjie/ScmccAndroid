@@ -4,9 +4,23 @@
 # -*- coding: utf-8 -*-
 __author__ = 'snake'
 
+from functools import wraps
 from appium import webdriver
 
 
+def _singleton(cls):
+    instances = {}
+
+    @wraps(cls)
+    def get_instance(*args, **kw):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kw)
+        return instances[cls]
+
+    return get_instance
+
+
+@_singleton
 class AppiumDriver:
     def __init__(self, device_name, platform_name, platform_version, app_package, app_activity, url):
         __desired_caps = {}

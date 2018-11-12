@@ -27,8 +27,9 @@ class TestCaseBase(unittest.TestCase):
         self.__param = param
 
     # @classmethod
-    # def setUpClass(cls):
+    # def setUpClass(cls, param):
     #     logger.info("="*100)
+    #     cls.driver =
     #     logger.info("开始执行测试集->{}".format(cls.__name__))
     #     logger.info("开始获取AppiumDriver")
     #     logger.info("成功获取driver, driver信息->{}".format(cls.driver))
@@ -42,6 +43,8 @@ class TestCaseBase(unittest.TestCase):
 
     def setUp(self):
         self.driver = TestCaseBase._get_driver(self.__param)
+        if "launcher" in self.driver.current_activity.lower():
+            self.driver.launch_app()
         logger.info("*"*100)
         logger.info("开始执行用例->{}.{}".format(self.__class__, self._testMethodName))
         logger.info("开始执行返回首页")
@@ -54,7 +57,7 @@ class TestCaseBase(unittest.TestCase):
     def tearDown(self):
         self.driver._switch_to.context(self.driver.contexts[0])
         logger.info("结束执行用例->{}.{}".format(self.__class__, self._testMethodName))
-        self.driver.quit()
+        self.driver.close_app()
 
     @staticmethod
     def parametrize(testcase_klass, param=None):
