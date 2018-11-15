@@ -47,8 +47,6 @@ class TestCaseMy(TestCaseBase):
         if blc == 0 and consume == 0:
             self.assertEquals(1, 2, "当前余额格式异常,余额->{}".format(balance))
 
-        self.assertFalse(True, "111")
-
     def test_dyxf(self):
         """
         检查当前消费，规则：为空/0/没有单位
