@@ -43,8 +43,6 @@ class TestCaseBase(unittest.TestCase):
 
     def setUp(self):
         self.driver = TestCaseBase._get_driver(self.__param)
-        if "launcher" in self.driver.current_activity.lower():
-            self.driver.launch_app()
         logger.info("*"*100)
         logger.info("开始执行用例->{}.{}".format(self.__class__, self._testMethodName))
         logger.info("开始执行返回首页")
@@ -132,12 +130,12 @@ class TestCaseBase(unittest.TestCase):
         获取AppiumDriver
         :return:
         """
-        url = "http://{}:{}/wd/hub".format(SeleniumGridConfig.HUB_HOST, SeleniumGridConfig.HUB_PORT)
         device_name = device["deviceName"]
         app_package = device["appPackage"]
         app_activity = device["appActivity"]
         platform_name = device["platformName"]
         platform_version = device["platformVersion"]
+        url = "http://{}:{}/wd/hub".format(SeleniumGridConfig.HUB_HOST, SeleniumGridConfig.HUB_PORT)
 
         try:
             adb_slide_unlock(uuid=device_name, slide_dire="up")
