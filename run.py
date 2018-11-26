@@ -17,11 +17,11 @@ from src.util.util_excel import read_excel
 from src.util.util_xml import get_phone_config
 from src.util.util_adb import is_connect_devices
 from src.util.util_xml import get_project_config
-from src.util.util_config import NodeConfigTemplate
 from src.util.util_email import EmailReportTemplate
 from src.case.v350.testcase_base import TestCaseBase
 from src.util.util_appium_server import AppiumServer
 from src.util.util_htmltestrunner_debug import HTMLTestRunner
+from src.util.util_config import NodeConfigTemplate, SeleniumGridConfig
 
 
 REPORTS_PATH = "./reports/"                                                                 # 测试报告路径
@@ -103,7 +103,9 @@ def _start_selenium_grid_server(selenium_grid_path=".\\libs\\seleniumgrid\\selen
     :return:
     """
     try:
-        res = requests.get("http://localhost:4444/grid/console")
+        url = "http://{}:{}/grid/console".\
+            format(SeleniumGridConfig.HUB_HOST, SeleniumGridConfig.HUB_PORT)
+        res = requests.get(url)
         if res.status_code == 200 and len(res.text) != 0:
             logger.info("SeleniumGridServer已启动!")
             return True
