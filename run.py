@@ -17,11 +17,11 @@ from src.util.util_excel import read_excel
 from src.util.util_xml import get_phone_config
 from src.util.util_adb import is_connect_devices
 from src.util.util_xml import get_project_config
+from src.util.util_config import NodeConfigTemplate
 from src.util.util_email import EmailReportTemplate
 from src.case.v350.testcase_base import TestCaseBase
 from src.util.util_appium_server import AppiumServer
 from src.util.util_htmltestrunner_debug import HTMLTestRunner
-from src.util.util_config import NodeConfigTemplate, SeleniumGridConfig
 
 
 REPORTS_PATH = "./reports/"                                                                 # 测试报告路径
@@ -64,8 +64,8 @@ def _run_case(device):
     """
     logger.info("开始执行手机【{}】测试用例".format(device["band"]))
     test_suites = _get_test_suites(device=device, version=device["vn"])
-    title = "四川移动掌厅自动测试报告-{}".format(device["band"])
-    description = "version：{} 执行人：欣网四川区测试组".format(device["vn"])
+    title = "xxx自动测试报告-{}".format(device["band"])
+    description = "version：{} 执行人：xxx测试组".format(device["vn"])
     with open("{}/{}-{}-测试报告.html".format(REPORTS_PATH, device["band"], START_TEST_TIME), "wb") as f:
         runner = HTMLTestRunner(stream=f, verbosity=2, title=title, description=description, retry=1)
         result = runner.run(test_suites)
@@ -103,9 +103,7 @@ def _start_selenium_grid_server(selenium_grid_path=".\\libs\\seleniumgrid\\selen
     :return:
     """
     try:
-        url = "http://{}:{}/grid/console".\
-            format(SeleniumGridConfig.HUB_HOST, SeleniumGridConfig.HUB_PORT)
-        res = requests.get(url)
+        res = requests.get("http://localhost:4444/grid/console")
         if res.status_code == 200 and len(res.text) != 0:
             logger.info("SeleniumGridServer已启动!")
             return True
@@ -232,7 +230,7 @@ def _generate_results(runner, result, version):
     s_id, f_id, e_id = 1, 1, 1
     success, errors, failures = [], [], []
     sorted_result = runner.sortResult(result.result)
-    cases = read_excel("./doc/掌厅自动化测试用例v1.1.xlsx", version)
+    cases = read_excel("./doc/自动化测试用例v1.1.xlsx", version)
     for cid, (cls, cls_results) in enumerate(sorted_result):
         for tid, (n, t, o, e) in enumerate(cls_results):
             module = _get_case_module(cases, t._testMethodName)
@@ -269,7 +267,7 @@ def _push_results(success, errors, failures, start_testing_time, device_name, ve
         logger.info("发送错误的case的测试报告邮件，请相及时修改bug")
 
         # 邮件帐号密码/接受方密码
-        report_title = "【错误反馈】-【{}】-掌厅{}".format(device_name, start_testing_time)
+        report_title = "【错误反馈】-【{}】-{}".format(device_name, start_testing_time)
         report_desc = EmailReportTemplate().set_content(errors)
 
         # 发送测试结果
@@ -288,7 +286,7 @@ def _push_results(success, errors, failures, start_testing_time, device_name, ve
         receiver.append("656882274@qq.com")
         receiver.append("jiangweijun@xwtec.cn")
         receiver.append("tangqiangsheng@xwtec.cn")
-        report_title = "【异常告警】【{}】四川移动掌厅自动化测试反馈{}-{}".format(device_name, version, start_testing_time)
+        report_title = "【异常告警】【{}】xxx测试反馈{}-{}".format(device_name, version, start_testing_time)
         report_desc = EmailReportTemplate().set_content(failures)
         # 发送测试结果
         try:
