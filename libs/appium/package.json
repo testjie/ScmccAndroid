@@ -60,7 +60,7 @@
     "babel-preset-env": "^1.6.0",
     "chai": "4.x",
     "chai-as-promised": "7.x",
-    "eslint": "3.x",
+    "eslint": "6.x",
     "eslint-config-appium": "2.x",
     "eslint-plugin-babel": "3.x",
     "eslint-plugin-import": "2.x",
